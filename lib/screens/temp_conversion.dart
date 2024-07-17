@@ -55,11 +55,14 @@ class _TempConversionState extends State<TempConversion> {
     screenWidth = MediaQuery.of(context).size.width;
     return Padding(
       padding: const EdgeInsets.all(8.0),
-      child: Container(
+      child: SizedBox(
         height: screenHeight / 2,
         width: screenWidth,
         child: Column(
           children: [
+            SizedBox(
+              height: screenHeight / 16,
+            ),
             Container(
               height: 57,
               width: 359,
@@ -125,6 +128,10 @@ class _TempConversionState extends State<TempConversion> {
                                 decimal: true),
                             decoration: const InputDecoration(
                               hintText: '0.00',
+                              hintStyle: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 22,
+                                  fontFamily: 'Poppins'),
                               // Optional: Add a border
                             ),
                           ),
@@ -188,7 +195,7 @@ class _TempConversionState extends State<TempConversion> {
                         height: 53,
                         width: 110,
                         child: Center(
-                          child: Text('${answer.toStringAsFixed(1)}',
+                          child: Text(answer.toStringAsFixed(1),
                               style: const TextStyle(
                                   color: Colors.white,
                                   fontWeight: FontWeight.bold,

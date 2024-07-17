@@ -81,7 +81,7 @@ class _MyAppBarState extends State<MyAppBar> {
             right: 50,
             top: 100,
             child: Container(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(5.0),
               decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(10),
@@ -94,7 +94,7 @@ class _MyAppBarState extends State<MyAppBar> {
                 ],
               ),
               child: const Text(
-                'This is an info box.',
+                "UI and Conversion: Design a user interface with Celsius input and a 'Convert' button. History: Keep track of previous conversions and display them below the result.",
                 style: TextStyle(
                   fontSize: 14,
                   color: Colors.black,
