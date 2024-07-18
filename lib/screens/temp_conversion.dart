@@ -54,10 +54,18 @@ class _TempConversionState extends State<TempConversion> {
     screenHeight = MediaQuery.of(context).size.height;
     screenWidth = MediaQuery.of(context).size.width;
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: const EdgeInsets.only(
+        bottom: 0,
+        left: 0,
+        right: 0,
+      ),
       child: SizedBox(
-        height: screenHeight / 2,
-        width: screenWidth,
+        height: MediaQuery.of(context).orientation == Orientation.portrait
+            ? screenHeight / 2
+            : screenHeight - 130,
+        width: MediaQuery.of(context).orientation == Orientation.portrait
+            ? screenWidth
+            : screenWidth / 2,
         child: Column(
           children: [
             SizedBox(
@@ -145,8 +153,8 @@ class _TempConversionState extends State<TempConversion> {
                                 left:
                                     BorderSide(width: 2, color: Color(_isOn))),
                             borderRadius: const BorderRadius.only(
-                              topRight: Radius.circular(20),
-                              bottomRight: Radius.circular(20),
+                              topRight: Radius.circular(0),
+                              bottomRight: Radius.circular(0),
                             )),
                         child: Center(
                           child: Text(
@@ -211,8 +219,8 @@ class _TempConversionState extends State<TempConversion> {
                                 left:
                                     BorderSide(width: 2, color: Color(_isOn))),
                             borderRadius: const BorderRadius.only(
-                              topRight: Radius.circular(20),
-                              bottomRight: Radius.circular(20),
+                              topRight: Radius.circular(0),
+                              bottomRight: Radius.circular(0),
                             )),
                         child: Center(
                           child: Text(

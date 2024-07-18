@@ -4,14 +4,15 @@ import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 
 class MyAppBar extends StatefulWidget implements PreferredSizeWidget {
-  const MyAppBar({super.key});
+  final double toolbarHeight;
+  const MyAppBar({super.key, required this.toolbarHeight});
 
   @override
   State<MyAppBar> createState() => _MyAppBarState();
 
   @override
   // TODO: implement preferredSize
-  Size get preferredSize => const Size.fromHeight(115);
+  Size get preferredSize => Size.fromHeight(toolbarHeight);
 }
 
 class _MyAppBarState extends State<MyAppBar> {
@@ -49,27 +50,34 @@ class _MyAppBarState extends State<MyAppBar> {
           ),
           actions: [
             Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Container(
-                height: 44,
-                width: 44,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
-                  gradient: const LinearGradient(
-                    begin: Alignment(-1.0, 0.0),
-                    end: Alignment(1.0, 0.0),
-                    colors: [
-                      Color.fromRGBO(110, 232, 52, 1),
-                      Color.fromRGBO(74, 242, 171, 1),
-                    ],
+              padding: const EdgeInsets.only(
+                bottom: 0,
+                left: 0,
+                right: 20,
+              ),
+              child: Center(
+                child: Container(
+                  height: 45,
+                  width: 45,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(12),
+                    gradient: const LinearGradient(
+                      begin: Alignment(-1.0, 0.0),
+                      end: Alignment(1.0, 0.0),
+                      colors: [
+                        Color.fromRGBO(110, 232, 52, 1),
+                        Color.fromRGBO(74, 242, 171, 1),
+                      ],
+                    ),
                   ),
-                ),
-                child: Center(
-                  child: IconButton(
-                    onPressed: _toggleInfoBox,
-                    icon: const Icon(Iconsax.info_circle),
-                    color: Colors.white,
-                    iconSize: 33,
+                  child: Center(
+                    child: IconButton(
+                      onPressed: _toggleInfoBox,
+                      icon: const Icon(Iconsax.information),
+                      color: Colors.white,
+                      iconSize: 40,
+                      padding: EdgeInsets.zero,
+                    ),
                   ),
                 ),
               ),
@@ -104,5 +112,11 @@ class _MyAppBarState extends State<MyAppBar> {
           ),
       ],
     );
+  }
+
+  @override
+  Size get preferredSize {
+    final orientation = MediaQuery.of(context).orientation;
+    return Size.fromHeight(orientation == Orientation.portrait ? 115 : 60);
   }
 }
