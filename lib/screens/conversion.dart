@@ -9,7 +9,7 @@ class Conversion extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double Height =
+    double height =
         MediaQuery.of(context).orientation == Orientation.portrait ? 115 : 60;
     return Container(
       decoration: const BoxDecoration(
@@ -17,7 +17,7 @@ class Conversion extends StatelessWidget {
               fit: BoxFit.cover, image: AssetImage('assets/images/calc.jpg'))),
       child: Scaffold(
         backgroundColor: Colors.transparent,
-        appBar: MyAppBar(toolbarHeight: Height),
+        appBar: MyAppBar(toolbarHeight: height),
         body: MediaQuery.of(context).orientation == Orientation.portrait
             ? const TempConversion()
             : const Row(
